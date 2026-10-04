@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Awwwards-Level 3D Storytelling Portfolio - Animations & Keyframes
+   ========================================================================== */
+
+/* Keyframe Animations */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
+@keyframes scroll-wheel {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+
+@keyframes float-medium {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(-3deg);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px var(--accent-orange-glow);
+  }
+  50% {
+    box-shadow: 0 0 35px var(--accent-orange);
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes paper-airplane-fly {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  30% {
+    transform: translate(40px, -20px) scale(1.1) rotate(-15deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(300px, -250px) scale(0.2) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Animation Helper Classes */
+.animate-float {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: float-medium 8s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Glass Card Tilt Transform */
+.tilt-card {
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+/* Orbit Badges Micro Float Animations */
+.badge-js {
+  animation: float-slow 5.5s ease-in-out infinite;
+}
+.badge-three {
+  animation: float-medium 7s ease-in-out 0.5s infinite;
+}
+.badge-react {
+  animation: float-slow 6.2s ease-in-out 1s infinite;
+}
+.badge-node {
+  animation: float-medium 7.5s ease-in-out 1.5s infinite;
+}
+
+/* Success Flying Plane Class */
+.btn-primary.sent .fa-paper-plane {
+  animation: paper-airplane-fly 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

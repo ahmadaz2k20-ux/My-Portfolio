@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madhav Gediya — Awwwards 3D Storytelling Portfolio</title>
+  <meta name="description" content="Immersive 3D Storytelling Full Stack Developer Portfolio for Madhav Gediya built with Three.js, GSAP ScrollTrigger, and Lenis Smooth Scroll.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Tactile Noise Grain Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Fullscreen Preloader -->
+  <div id="loader">
+    <div class="loader-logo">
+      MADHAV <span>.</span>
+    </div>
+    <div class="loader-bar-bg">
+      <div class="loader-bar-fill" id="loader-fill"></div>
+    </div>
+    <div class="loader-percentage" id="loader-text">0%</div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- WebGL Background Canvas -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar" id="progress-bar"></div>
+  </div>
+
+  <!-- Glass Navbar -->
+  <header class="navbar">
+    <a href="#hero" class="nav-logo">
+      MADHAV <span class="dot"></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#chapter-01" class="nav-link">About</a></li>
+      <li><a href="#chapter-02" class="nav-link">Experience</a></li>
+      <li><a href="#chapter-03" class="nav-link">Skills</a></li>
+      <li><a href="#chapter-04" class="nav-link">Projects</a></li>
+      <li><a href="#chapter-05" class="nav-link">Code</a></li>
+      <li><a href="#chapter-06" class="nav-link">GitHub</a></li>
+      <li><a href="#chapter-07" class="nav-link">Services</a></li>
+      <li><a href="#chapter-08" class="nav-link">Reviews</a></li>
+    </ul>
+    <a href="#chapter-09" class="nav-cta btn-magnetic">Let's Talk</a>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="section">
+      <div class="container hero-container">
+        <div class="hero-trio-grid">
+          
+          <!-- Left Column: Headline & Primary Action -->
+          <div class="hero-col-left hero-content">
+            <div class="hero-subtitle-badge">
+              <span class="status-dot"></span> Available for Select Projects
+            </div>
+            
+            <div class="hero-name-label">// MADHAV GEDIYA — CREATIVE ENGINEER</div>
+            <h1 class="hero-title" id="hero-animated-title">
+              <span class="word">CREATING</span> 
+              <span class="word highlight">DIGITAL</span> 
+              <span class="word">EXPERIENCES</span> 
+              <span class="word">THAT</span> 
+              <span class="word">INSPIRE</span>
+            </h1>
+
+            <div class="hero-actions" id="hero-buttons-left">
+              <a href="#chapter-04" class="btn-primary btn-magnetic">
+                Explore Projects <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Center Column: Futuristic Avatar Showcase (Framed by 3D Object Behind) -->
+          <div class="hero-col-center hero-avatar-wrapper">
+            <div class="hero-avatar-card tilt-card" id="hero-avatar-card">
+              <div class="hero-avatar-glow"></div>
+              
+              <!-- Developer Portrait (White Helmet + Orange Visor) -->
+              <div class="hero-avatar-img-container">
+                <img src="images/madhav.png" alt="Madhav Gediya — Full Stack Developer" class="hero-avatar-img">
+              </div>
+
+              <!-- Floating Orbit Skill Badges -->
+              <div class="orbit-badge badge-js animate-float">
+                <i class="fa-brands fa-js" style="color: #f7df1e;"></i> JavaScript
+              </div>
+              <div class="orbit-badge badge-three animate-float-medium">
+                <i class="fa-solid fa-cube" style="color: #ff5500;"></i> Three.js
+              </div>
+              <div class="orbit-badge badge-react animate-float">
+                <i class="fa-brands fa-react" style="color: #61dafb;"></i> React
+              </div>
+              <div class="orbit-badge badge-node animate-float-medium">
+                <i class="fa-brands fa-node-js" style="color: #68a063;"></i> Node.js
+              </div>
+
+              <!-- Glass Info Overlay -->
+              <div class="hero-avatar-info-glass">
+                <div class="info-title">Madhav Gediya</div>
+                <div class="info-sub">Full Stack & 3D Web Creator</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Bio, Quick Stats & Contact CTA -->
+          <div class="hero-col-right hero-content">
+            <p class="hero-description" id="hero-desc">
+              Full Stack Developer & 3D WebGL Specialist architecting high-performance interactive web apps, scalable backend systems, and immersive digital storytelling experiences.
+            </p>
+
+            <div class="hero-quick-stats" id="hero-stats">
+              <div class="stat-pill"><i class="fa-solid fa-code"></i> 4+ Yrs Exp</div>
+              <div class="stat-pill"><i class="fa-solid fa-layer-group"></i> 35+ Projects</div>
+              <div class="stat-pill"><i class="fa-solid fa-cubes"></i> 3D & Full Stack</div>
+            </div>
+
+            <div class="hero-actions" id="hero-buttons-right">
+              <a href="#chapter-09" class="btn-secondary btn-magnetic">
+                Get In Touch <i class="fa-solid fa-paper-plane"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="scroll-down-indicator">
+        <div class="mouse-icon">
+          <div class="wheel"></div>
+        </div>
+        <span>Scroll to Explore</span>
+      </div>
+    </section>ion>
+
+    <!-- CHAPTER 01: WHO AM I -->
+    <section id="chapter-01" class="section">
+      <div class="container">
+        <div class="chapter-badge">Chapter 01</div>
+        <h2 class="section-title">Who Am I</h2>
+        <p class="section-subtitle">A blend of technical precision, creative engineering, and architectural clarity.</p>
+
+        <div class="about-grid">
+          <!-- Bio Text -->
+          <div class="about-card-glass tilt-card">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+              <img src="images/madhav.png" alt="Madhav Gediya" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-orange); box-shadow: var(--shadow-sm);">
+              <div>
+                <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800;">Madhav Gediya</h3>
+                <span style="font-size: 0.8rem; color: var(--accent-orange); font-weight: 700;">Full Stack & 3D Web Specialist</span>
+              </div>
+            </div>
+            <p class="about-bio-text">
+              Hello! I'm <strong>Madhav Gediya</strong>, a Full Stack Developer & 3D Interactive Web Specialist with a passion for designing digital experiences that blur the line between code and art.
+              <br><br>
+              With over 4+ years of building web applications, I specialize in combining modern frontend craft (Three.js, GSAP, WebGL) with robust backend engines (Node.js, Express, MongoDB, REST/GraphQL APIs).
+              <br><br>
+              My goal is to deliver software that is not only visually stunning and responsive, but also performant, maintainable, and scalable.
+            </p>
+          </div>
+
+          <!-- Philosophy & Focus -->
+          <div class="about-card-glass tilt-card">
+            <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 20px;">My Development Philosophy</h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 16px; color: var(--text-muted);">
+              <li style="display: flex; align-items: center; gap: 12px;">
+                <i class="fa-solid fa-circle-check" style="color: var(--accent-orange);"></i> <strong>Pixel-Perfect Craft:</strong> Design with mathematical grid alignment & smooth 60fps motion.
+              </li>
+              <li style="display: flex; align-items: center; gap: 12px;">
+                <i class="fa-solid fa-circle-check" style="color: var(--accent-orange);"></i> <strong>Fluid Performance:</strong> Sub-second page rendering & optimized WebGL shaders.
+              </li>
+              <li style="display: flex; align-items: center; gap: 12px;">
+                <i class="fa-solid fa-circle-check" style="color: var(--accent-orange);"></i> <strong>Clean Architecture:</strong> Modularity, clean APIs, and maintainable software patterns.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </sect 
+    
+    <!-- CHAPTER 02: EXPERIENCE -->
+    <section id="chapter-02" class="section">
+      <div class="container">
+        <div style="text-align: center;">
+          <div class="chapter-badge">// 02 / JOURNEY</div>
+          <h2 class="section-title">My Journey & Experience</h2>
+          <p class="section-subtitle" style="margin: 0 auto 40px auto;">A chronicle of building high-concurrency software, 3D WebGL interfaces, and scalable agency systems.</p>
+        </div>
+
+        <div class="experience-timeline">
+          <div class="timeline-line"></div>
+          <div class="timeline-line-progress" id="timeline-progress"></div>
+
+          <!-- Item 1 (Left) -->
+          <div class="exp-card-wrapper exp-left">
+            <div class="timeline-node">
+              <div class="node-ring"></div>
+              <div class="node-dot"></div>
+            </div>
+            <div class="exp-card tilt-card">
+              <div class="exp-header">
+                <div class="exp-brand-info">
+                  <div class="company-badge-icon"><i class="fa-solid fa-cube"></i></div>
+                  <div>
+                    <h3 class="exp-role">Senior Full Stack Engineer</h3>
+                    <span class="exp-company">Aura Labs Inc.</span>
+                  </div>
+                </div>
+                <span class="exp-date"><i class="fa-regular fa-calendar"></i> 2024 - Present</span>
+              </div>
+              <p class="exp-desc">
+                Leading frontend 3D WebGL initiatives, building real-time microservices architecture, and crafting fluid spatial design tools for enterprise clients.
+              </p>
+              <div class="exp-tags">
+                <span class="exp-tag-pill">Three.js</span>
+                <span class="exp-tag-pill">React</span>
+                <span class="exp-tag-pill">Node.js</span>
+                <span class="exp-tag-pill">WebGL</span>
+              </div>
+              <div class="exp-highlight">
+                <i class="fa-solid fa-bolt highlight-icon"></i> Architected 3D Engine boosting user engagement by +45%
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 (Right) -->
+          <div class="exp-card-wrapper exp-right">
+            <div class="timeline-node">
+              <div class="node-ring"></div>
+              <div class="node-dot"></div>
+            </div>
+            <div class="exp-card tilt-card">
+              <div class="exp-header">
+                <div class="exp-brand-info">
+                  <div class="company-badge-icon"><i class="fa-solid fa-code"></i></div>
+                  <div>
+                    <h3 class="exp-role">Full Stack Developer</h3>
+                    <span class="exp-company">Nexus Digital Agency</span>
+                  </div>
+                </div>
+                <span class="exp-date"><i class="fa-regular fa-calendar"></i> 2022 - 2024</span>
+              </div>
+              <p class="exp-desc">
+                Architected interactive WebGL experiences, custom e-commerce applications, and scalable design systems for global enterprise brands.
+              </p>
+              <div class="exp-tags">
+                <span class="exp-tag-pill">JavaScript</span>
+                <span class="exp-tag-pill">GSAP</span>
+                <span class="exp-tag-pill">Python</span>
+                <span class="exp-tag-pill">Tailwind</span>
+              </div>
+              <div class="exp-highlight">
+                <i class="fa-solid fa-trophy highlight-icon"></i> Delivered 15+ award-winning commercial web products
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 (Left) -->
+          <div class="exp-card-wrapper exp-left">
+            <div class="timeline-node">
+              <div class="node-ring"></div>
+              <div class="node-dot"></div>
+            </div>
+            <div class="exp-card tilt-card">
+              <div class="exp-header">
+                <div class="exp-brand-info">
+                  <div class="company-badge-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                  <div>
+                    <h3 class="exp-role">Frontend Web Developer</h3>
+                    <span class="exp-company">Vanguard Tech</span>
+                  </div>
+                </div>
+                <span class="exp-date"><i class="fa-regular fa-calendar"></i> 2021 - 2022</span>
+              </div>
+              <p class="exp-desc">
+                Developed high-performance web applications, interactive telemetry dashboards, and optimized web rendering pipelines across platforms.
+              </p>
+              <div class="exp-tags">
+                <span class="exp-tag-pill">HTML5</span>
+                <span class="exp-tag-pill">CSS3</span>
+                <span class="exp-tag-pill">Vue.js</span>
+                <span class="exp-tag-pill">REST APIs</span>
+              </div>
+              <div class="exp-highlight">
+                <i class="fa-solid fa-chart-line highlight-icon"></i> Reduced load times by 60% with sub-second TBT
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Counter Grid -->
+        <div class="exp-counters">
+          <div class="counter-box tilt-card">
+            <div class="counter-icon-wrap"><i class="fa-solid fa-clock-rotate-left"></i></div>
+            <div class="counter-number-wrap"><span class="counter-number" data-target="4">0</span><span class="counter-plus">+</span></div>
+            <div class="counter-label">Years Experience</div>
+          </div>
+          <div class="counter-box tilt-card">
+            <div class="counter-icon-wrap"><i class="fa-solid fa-diagram-project"></i></div>
+            <div class="counter-number-wrap"><span class="counter-number" data-target="35">0</span><span class="counter-plus">+</span></div>
+            <div class="counter-label">Projects Completed</div>
+          </div>
+          <div class="counter-box tilt-card">
+            <div class="counter-icon-wrap"><i class="fa-solid fa-users"></i></div>
+            <div class="counter-number-wrap"><span class="counter-number" data-target="22">0</span><span class="counter-plus">+</span></div>
+            <div class="counter-label">Happy Clients</div>
+          </div>
+          <div class="counter-box tilt-card">
+            <div class="counter-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="counter-number-wrap"><span class="counter-number" data-target="99">0</span><span class="counter-plus">%</span></div>
+            <div class="counter-label">Client Satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 03: SKILLS -->
+    <section id="chapter-03" class="section">
+      <div class="container">
+        <div style="text-align: center;">
+          <div class="chapter-badge">Chapter 03</div>
+          <h2 class="section-title">Skills & Tech Stack</h2>
+          <p class="section-subtitle" style="margin: 0 auto 40px auto;">Tools and technologies I use to build world-class web applications.</p>
+        </div>
+
+        <div class="skills-universe-container">
+          <!-- Skill Items -->
+          <div class="skill-card tilt-card" data-percent="95">
+            <div class="skill-header">
+              <div class="skill-icon-wrap"><i class="fa-brands fa-js"></i></div>
+              <div class="skill-percentage">95%</div>
+            </div>
+            <div class="skill-title">JavaScript (ES6+)</div>
+            <div class="skill-progress-bg"><div class="skill-progress-fill"></div></div>
+          </div>
+
+          <div class="skill-card tilt-card" data-percent="92">
+            <div class="skill-header">
+              <div class="skill-icon-wrap"><i class="fa-brands fa-react"></i></div>
+              <div class="skill-percentage">92%</div>
+            </div>
+            <div class="skill-title">React & Next.js</div>
+            <div class="skill-progress-bg"><div class="skill-progress-fill"></div></div>
+          </div>
+
+          <div class="skill-card tilt-card" data-percent="90">
+            <div class="skill-header">
+              <div class="skill-icon-wrap"><i class="fa-brands fa-node-js"></i></div>
+              <div class="skill-percentage">90%</div>
+            </div>
+            <div class="skill-title">Node.js & Express</div>
+            <div class="skill-progress-bg"><div class="skill-progress-fill"></div></div>
+          </div>
+
+          <div class="skill-card tilt-card" data-percent="88">
+            <div class="skill-header">
+              <div class="skill-icon-wrap"><i class="fa-solid fa-cube"></i></div>
+              <div class="skill-percentage">88%</div>
+            </div>
+            <div class="skill-title">Three.js & WebGL</div>
+            <div class="skill-progress-bg"><div class="skill-progress-fill"></div></div>
+          </div>
+
+          <div class="skill-card tilt-card" data-percent="94">
+            <div class="skill-header">
+              <div class="skill-icon-wrap"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+              <div class="skill-percentage">94%</div>
+            </div>
+            <div class="skill-title">GSAP & ScrollTrigger</div>
+            <div class="skill-progress-bg"><div class="skill-progress-fill"></div></div>
+          </div>
+
+          <div class="skill-card tilt-card" data-percent="85">
+            <div class="skill-header">
+              <div class="skill-icon-wrap"><i class="fa-solid fa-database"></i></div>
+              <div class="skill-percentage">85%</div>
+            </div>
+            <div class="skill-title">MongoDB & PostgreSQL</div>
+            <div class="skill-progress-bg"><div class="skill-progress-fill"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 04: PROJECTS HORIZONTAL SCROLL SHOWCASE -->
+    <section id="chapter-04" class="section projects-pinned-section">
+      <div class="projects-pinned-header">
+        <div class="chapter-badge">// 04 / SELECTED PROJECTS</div>
+        <h2 class="section-title">Featured Engineering & 3D Work</h2>
+      </div>
+
+      <div class="projects-horizontal-wrapper">
+        <div class="projects-horizontal-track" id="projects-track">
+          
+          <!-- Project 1 -->
+          <div class="project-card-horizontal tilt-card">
+            <div class="project-media-col">
+              <img src="images/project-1-custom.jpg" alt="Apex AI Analytics Platform" class="project-img">
+              <div class="project-overlay-badge">AI & Telemetry</div>
+            </div>
+            <div class="project-info-col">
+              <div class="project-card-top">
+                <div class="project-tags">
+                  <span class="tag-pill">Next.js</span>
+                  <span class="tag-pill">Python</span>
+                  <span class="tag-pill">Three.js</span>
+                </div>
+                <div class="project-num">01 / 04</div>
+              </div>
+              <h3 class="project-title">Apex AI Analytics Platform</h3>
+              <p class="project-desc">Real-time telemetry dashboard with live WebSocket feeds, AI predictive charts, and 3D data visualization widgets engineered for high-throughput enterprise metrics.</p>
+              <div class="project-links">
+                <a href="#" class="project-btn project-btn-primary btn-magnetic">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                <a href="#" class="project-btn project-btn-outline btn-magnetic">Source <i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card-horizontal tilt-card">
+            <div class="project-media-col">
+              <img src="images/project-2-custom.jpg" alt="Web3 Metaverse Marketplace" class="project-img">
+              <div class="project-overlay-badge">Web3 & WebGL</div>
+            </div>
+            <div class="project-info-col">
+              <div class="project-card-top">
+                <div class="project-tags">
+                  <span class="tag-pill">Solidity</span>
+                  <span class="tag-pill">WebGL</span>
+                  <span class="tag-pill">React</span>
+                </div>
+                <div class="project-num">02 / 04</div>
+              </div>
+              <h3 class="project-title">Web3 Metaverse Marketplace</h3>
+              <p class="project-desc">Decentralized 3D asset marketplace with WebGL avatar rendering, smart contract checkout, and glassmorphic UI for virtual world creators.</p>
+              <div class="project-links">
+                <a href="#" class="project-btn project-btn-primary btn-magnetic">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                <a href="#" class="project-btn project-btn-outline btn-magnetic">Source <i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card-horizontal tilt-card">
+            <div class="project-media-col">
+              <img src="images/project-3-custom.jpg" alt="SaaS Motion Design Dashboard" class="project-img">
+              <div class="project-overlay-badge">SaaS & Motion</div>
+            </div>
+            <div class="project-info-col">
+              <div class="project-card-top">
+                <div class="project-tags">
+                  <span class="tag-pill">Vue.js</span>
+                  <span class="tag-pill">GSAP</span>
+                  <span class="tag-pill">Tailwind</span>
+                </div>
+                <div class="project-num">03 / 04</div>
+              </div>
+              <h3 class="project-title">SaaS Motion Design Dashboard</h3>
+              <p class="project-desc">High-performance management console featuring smooth fluid transitions, customizable widgets, dark mode palette, and zero frame-drop animation loops.</p>
+              <div class="project-links">
+                <a href="#" class="project-btn project-btn-primary btn-magnetic">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                <a href="#" class="project-btn project-btn-outline btn-magnetic">Source <i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card-horizontal tilt-card">
+            <div class="project-media-col">
+              <img src="images/project-4.jpg" alt="Spatial 3D Product Configurator" class="project-img">
+              <div class="project-overlay-badge">3D E-Commerce</div>
+            </div>
+            <div class="project-info-col">
+              <div class="project-card-top">
+                <div class="project-tags">
+                  <span class="tag-pill">Three.js</span>
+                  <span class="tag-pill">Node.js</span>
+                  <span class="tag-pill">WebGL</span>
+                </div>
+                <div class="project-num">04 / 04</div>
+              </div>
+              <h3 class="project-title">Spatial 3D Product Configurator</h3>
+              <p class="project-desc">Interactive 3D product visualizer allowing customers to inspect texture materials and customize footwear in real-time 3D space with high dynamic range lighting.</p>
+              <div class="project-links">
+                <a href="#" class="project-btn project-btn-primary btn-magnetic">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                <a href="#" class="project-btn project-btn-outline btn-magnetic">Source <i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 05: CODE SHOWCASE -->
+    <section id="chapter-05" class="section">
+      <div class="container">
+        <div style="text-align: center;">
+          <div class="chapter-badge">Chapter 05</div>
+          <h2 class="section-title">Code Showcase</h2>
+          <p class="section-subtitle" style="margin: 0 auto 40px auto;">A peek into how clean, self-documenting code is structured.</p>
+        </div>
+
+        <div class="terminal-window tilt-card">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot-red"></span>
+              <span class="dot-yellow"></span>
+              <span class="dot-green"></span>
+            </div>
+            <div class="terminal-title">developer@madhav: ~/portfolio/craft.js</div>
+            <div></div>
+          </div>
+          <div class="terminal-body" id="terminal-content">
+            <!-- Typing output populated dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 06: GITHUB ACTIVITY -->
+    <section id="chapter-06" class="section">
+      <div class="container">
+        <div style="text-align: center;">
+          <div class="chapter-badge">Chapter 06</div>
+          <h2 class="section-title">GitHub Contribution Matrix</h2>
+          <p class="section-subtitle" style="margin: 0 auto 40px auto;">Consistency in code, commit history, and continuous learning.</p>
+        </div>
+
+        <div class="github-card-glass tilt-card">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <i class="fa-brands fa-github" style="font-size: 2rem; color: var(--accent-orange);"></i>
+              <h3 style="font-family: var(--font-heading); font-size: 1.25rem;">@madhavgediya</h3>
+            </div>
+            <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">1,420+ commits in past year</span>
+          </div>
+
+          <div class="github-grid-container" id="github-matrix">
+            <!-- Grid squares rendered via JS -->
+          </div>
+
+          <div class="github-stats-bar">
+            <div class="stat-item">
+              <div class="stat-val">34</div>
+              <div class="stat-lbl">Repositories</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val">1.4k</div>
+              <div class="stat-lbl">Total Commits</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val">128</div>
+              <div class="stat-lbl">Pull Requests</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 07: SERVICES -->
+    <section id="chapter-07" class="section">
+      <div class="container">
+        <div style="text-align: center;">
+          <div class="chapter-badge">Chapter 07</div>
+          <h2 class="section-title">Services & Expertise</h2>
+          <p class="section-subtitle" style="margin: 0 auto 40px auto;">End-to-end capabilities for high-impact digital solutions.</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card tilt-card">
+            <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+            <h3 class="service-title">Full Stack Web Development</h3>
+            <p class="service-desc">Custom web applications built from scratch with clean frontend architecture and scalable backend services.</p>
+          </div>
+
+          <div class="service-card tilt-card">
+            <div class="service-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
+            <h3 class="service-title">3D Web & WebGL Experiences</h3>
+            <p class="service-desc">Immersive 3D interactive graphics, custom shaders, and particle environments rendered efficiently on WebGL.</p>
+          </div>
+
+          <div class="service-card tilt-card">
+            <div class="service-icon"><i class="fa-solid fa-gauge-high"></i></div>
+            <h3 class="service-title">UI/UX & Motion Engineering</h3>
+            <p class="service-desc">Fluid micro-interactions, GSAP scroll animations, and cinematic transitions with high Lighthouse performance scores.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 08: TESTIMONIALS -->
+    <section id="chapter-08" class="section">
+      <div class="container">
+        <div style="text-align: center;">
+          <div class="chapter-badge">Chapter 08</div>
+          <h2 class="section-title">Client Reviews & Testimonials</h2>
+          <p class="section-subtitle" style="margin: 0 auto 40px auto;">Feedback from team leads, founders, and collaboration partners.</p>
+        </div>
+
+        <div class="testimonials-slider-container">
+          <div class="testimonials-grid" id="testimonials-grid">
+            <!-- Review 1 -->
+            <div class="testimonial-card tilt-card">
+              <div class="testimonial-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="testimonial-quote">"Madhav brought our 3D product vision to life with remarkable speed and attention to detail. His expertise in Three.js and GSAP is exceptional."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">SC</div>
+                <div class="author-info">
+                  <h4>Sarah Chen</h4>
+                  <p>Product Lead at Aura Labs</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="testimonial-card tilt-card">
+              <div class="testimonial-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="testimonial-quote">"Working with Madhav was seamless. He delivers clean code, stunning visual motion, and reliable backend infrastructure every single time."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">DR</div>
+                <div class="author-info">
+                  <h4>David Ross</h4>
+                  <p>Founder & CEO, Nexus Digital</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="testimonial-card tilt-card">
+              <div class="testimonial-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="testimonial-quote">"The performance of our web application improved drastically after Madhav refactored our frontend and optimized WebGL rendering loops."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">EM</div>
+                <div class="author-info">
+                  <h4>Elena Miller</h4>
+                  <p>VP of Engineering, Vanguard Tech</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Glass Slider Navigation Controls -->
+          <div class="testimonial-controls">
+            <button class="slider-arrow btn-magnetic" id="testimonial-prev" aria-label="Previous Testimonial">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <div class="slider-dots" id="testimonial-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <button class="slider-arrow btn-magnetic" id="testimonial-next" aria-label="Next Testimonial">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 09: CONTACT -->
+    <section id="chapter-09" class="section">
+      <div class="container">
+        <div style="text-align: center;">
+          <div class="chapter-badge">Chapter 09</div>
+          <h2 class="section-title">Let's Build Something Together</h2>
+          <p class="section-subtitle" style="margin: 0 auto 40px auto;">Have a project in mind or want to collaborate? Send a message!</p>
+        </div>
+
+        <div class="contact-card-glass tilt-card">
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" class="form-input" placeholder="e.g. Alex Morgan" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" class="form-input" placeholder="e.g. alex@company.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Project Brief / Message</label>
+              <textarea id="message" class="form-textarea" placeholder="Tell me about your project goals, timeline, and budget..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary btn-magnetic" id="submit-btn" style="width: 100%; justify-content: center; margin-top: 12px;">
+              Send Message <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Studio Reference Footer -->
+  <footer class="studio-footer" id="studio-footer">
+    <div class="container footer-top-grid">
+      
+      <!-- Brand & Copyright Column -->
+      <div class="footer-brand-col">
+        <a href="#hero" class="footer-logo">
+          <span class="logo-box">M</span> MADHAV<span class="dot"></span>
+        </a>
+        <div class="footer-status-pill">
+          <span class="status-dot"></span> Available for Q3/Q4 Projects
+        </div>
+        <p class="footer-copyright">© copyright MadhavGediya 2026. All rights reserved.</p>
+      </div>
+
+      <!-- Links Grid (4 Columns) -->
+      <div class="footer-links-grid">
+        
+        <!-- Col 1: Pages -->
+        <div class="footer-col">
+          <h5 class="footer-col-title">Pages</h5>
+          <ul class="footer-link-list">
+            <li><a href="#hero" class="footer-link">Home</a></li>
+            <li><a href="#chapter-01" class="footer-link">About</a></li>
+            <li><a href="#chapter-02" class="footer-link">Experience</a></li>
+            <li><a href="#chapter-03" class="footer-link">Skills</a></li>
+            <li><a href="#chapter-04" class="footer-link">Projects</a></li>
+            <li><a href="#chapter-07" class="footer-link">Services</a></li>
+            <li><a href="#chapter-08" class="footer-link">Reviews</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Socials -->
+        <div class="footer-col">
+          <h5 class="footer-col-title">Socials</h5>
+          <ul class="footer-link-list">
+            <li><a href="https://github.com" target="_blank" class="footer-link">GitHub <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i></a></li>
+            <li><a href="https://linkedin.com" target="_blank" class="footer-link">LinkedIn <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i></a></li>
+            <li><a href="https://twitter.com" target="_blank" class="footer-link">Twitter <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i></a></li>
+            <li><a href="https://instagram.com" target="_blank" class="footer-link">Instagram <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i></a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Legal -->
+        <div class="footer-col">
+          <h5 class="footer-col-title">Legal</h5>
+          <ul class="footer-link-list">
+            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+            <li><a href="#" class="footer-link">Terms of Service</a></li>
+            <li><a href="#" class="footer-link">Cookie Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Connect & Back to Top -->
+        <div class="footer-col">
+          <h5 class="footer-col-title">Connect</h5>
+          <ul class="footer-link-list">
+            <li><a href="#chapter-09" class="footer-link">Let's Talk</a></li>
+            <li><a href="mailto:madhavgediya@gmail.com" class="footer-link">Send Email</a></li>
+            <li><a href="#chapter-09" class="footer-link">Hire Me</a></li>
+          </ul>
+          <div style="margin-top: 24px;">
+            <a href="#hero" class="back-to-top-btn btn-magnetic" id="back-to-top" aria-label="Back to Top">
+              <i class="fa-solid fa-arrow-up"></i> Top
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Massive Background Display Watermark -->
+    <div class="footer-watermark-wrap">
+      <div class="footer-watermark-text" id="footer-watermark">Madhav Gediya</div>
+    </div>
+  </footer>
+
+  <!-- CDN Script Includes -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+  <!-- Application Logic Scripts -->
+  <script src="js/three.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

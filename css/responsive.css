@@ -1,0 +1,194 @@
+/* ==========================================================================
+   Awwwards-Level 3D Storytelling Portfolio - Responsive Stylesheet
+   ========================================================================== */
+
+/* Laptop & Medium Screens (< 1200px) */
+@media screen and (max-width: 1200px) {
+  .section-title {
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  }
+  
+  .about-grid {
+    gap: 40px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+/* Tablet Screens (< 992px) */
+@media screen and (max-width: 992px) {
+  .hero-trio-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .hero-col-left, .hero-col-right {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-quick-stats {
+    align-items: center;
+  }
+
+  .hero-avatar-card {
+    height: 440px;
+    width: min(100%, 350px);
+  }
+
+  header.navbar {
+    width: 92%;
+    padding: 12px 20px;
+  }
+  
+  .nav-links {
+    gap: 20px;
+  }
+  
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .interactive-tech-stage {
+    height: 320px;
+  }
+  
+  .exp-counters {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .timeline-line, .timeline-line-progress {
+    left: 24px;
+  }
+  
+  .exp-card-wrapper, .exp-card-wrapper:nth-child(even) {
+    width: 100%;
+    padding-left: 60px;
+    padding-right: 0;
+    justify-content: flex-start;
+  }
+  
+  .exp-card {
+    max-width: 100%;
+  }
+  
+  .testimonials-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 16px;
+    gap: 20px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .testimonial-card {
+    min-width: min(85vw, 360px);
+    scroll-snap-align: center;
+  }
+
+  .github-grid-container {
+    grid-template-columns: repeat(20, 1fr);
+  }
+}
+
+/* Mobile Screens (< 768px) */
+@media screen and (max-width: 768px) {
+  /* Hide custom cursor on touch devices */
+  #cursor-dot, #cursor-ring {
+    display: none !important;
+  }
+  
+  header.navbar {
+    border-radius: 20px;
+    top: 12px;
+  }
+  
+  .nav-links {
+    display: none; /* Can be toggled if mobile menu added or kept clean */
+  }
+  
+  .section {
+    padding: 90px 16px 60px 16px;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.4rem, 10vw, 3.8rem);
+    letter-spacing: -1.5px;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .projects-pinned-section {
+    height: auto;
+    min-height: 100vh;
+    max-height: none;
+    padding: 80px 0 !important;
+  }
+
+  .projects-horizontal-track {
+    gap: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .project-card-horizontal {
+    grid-template-columns: 1fr;
+    width: min(88vw, 420px);
+    height: auto;
+    max-height: none;
+  }
+
+  .project-media-col {
+    height: 200px;
+  }
+
+  .project-info-col {
+    padding: 24px;
+  }
+  
+  .contact-card-glass {
+    padding: 28px 20px;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .github-grid-container {
+    grid-template-columns: repeat(14, 1fr);
+  }
+}
+
+/* Small Mobile Screens (< 480px) */
+@media screen and (max-width: 480px) {
+  .orbit-badge {
+    padding: 6px 12px;
+    font-size: 0.72rem;
+  }
+  .badge-js { top: 20px; left: -10px; }
+  .badge-three { top: 120px; right: -10px; }
+  .badge-react { bottom: 100px; left: -10px; }
+  .badge-node { bottom: 45px; right: -10px; }
+
+  .exp-counters {
+    grid-template-columns: 1fr;
+  }
+  
+  .testimonial-card {
+    width: 300px;
+    padding: 24px;
+  }
+}

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="75%">
+      <stop offset="0%" stop-color="#3a2418"/>
+      <stop offset="55%" stop-color="#1c120b"/>
+      <stop offset="100%" stop-color="#0b0705"/>
+    </radialGradient>
+    <linearGradient id="visor" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff7a18"/>
+      <stop offset="50%" stop-color="#ff3d00"/>
+      <stop offset="100%" stop-color="#ffb347"/>
+    </linearGradient>
+    <linearGradient id="suit" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2b2b33"/>
+      <stop offset="100%" stop-color="#0e0e13"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="14" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="600" height="600" fill="url(#bg)"/>
+
+  <!-- ambient halo -->
+  <circle cx="300" cy="300" r="230" fill="none" stroke="#ff5500" stroke-opacity="0.12" stroke-width="2"/>
+  <circle cx="300" cy="300" r="270" fill="none" stroke="#ff5500" stroke-opacity="0.06" stroke-width="2"/>
+
+  <!-- shoulders / suit -->
+  <path d="M110 600 C120 470 190 410 300 410 C410 410 480 470 490 600 Z" fill="url(#suit)"/>
+  <path d="M300 410 L268 600 L332 600 Z" fill="#16161c"/>
+
+  <!-- helmet -->
+  <g filter="url(#glow)">
+    <ellipse cx="300" cy="250" rx="150" ry="165" fill="#e9eef2"/>
+    <ellipse cx="300" cy="250" rx="150" ry="165" fill="none" stroke="#ffffff" stroke-opacity="0.7" stroke-width="3"/>
+    <!-- visor -->
+    <path d="M188 230 C188 165 245 140 300 140 C355 140 412 165 412 230 C412 300 360 330 300 330 C240 330 188 300 188 230 Z" fill="url(#visor)"/>
+    <path d="M205 215 C205 175 250 158 300 158 C350 158 395 175 395 215 C388 250 350 268 300 268 C250 268 212 250 205 215 Z" fill="#ffd9b0" fill-opacity="0.25"/>
+    <ellipse cx="262" cy="200" rx="26" ry="14" fill="#ffffff" fill-opacity="0.55"/>
+  </g>
+
+  <!-- monogram -->
+  <text x="300" y="525" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-size="56" font-weight="800" fill="#ff5500" letter-spacing="6">AA</text>
+</svg>
